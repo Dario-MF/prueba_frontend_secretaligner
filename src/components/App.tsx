@@ -1,4 +1,6 @@
 import { Pacientes } from "../controllers/pacienteController";
+import Home from "./pages/Home";
+import '../styles/main.scss';
 
 
 
@@ -6,9 +8,9 @@ const App = () => {
   new Pacientes()
 
   return (
-    <div>
-      <h1>Gestor Pacientes</h1>
-    </div>
+    <>
+      <Home />
+    </>
   )
 }
 

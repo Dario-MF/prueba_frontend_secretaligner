@@ -1,0 +1,55 @@
+/* Layout grid responsive (mobile first) */
+
+.wrapper_grid {
+  /* Mobile */
+  display: grid;
+  grid-template-columns: repeat(3, [col-start] 1fr);
+  grid-gap: 20px;
+  
+  .header {
+    grid-column: col-start / span 3;
+  }
+  .aside {
+    grid-column: col-start / span 1;
+    grid-row: 2 / 3;
+  }
+  .main {
+    grid-column: col-start 2 / span 2;
+    grid-row: 2 / 3;
+  }
+  
+
+  @include mq(s) {
+    /* Tablet + 480px */
+    grid-template-columns: repeat(6, [col-start] 1fr);
+
+    .header {
+      grid-column: col-start / span 7;
+    }
+    .aside {
+      grid-column: col-start / span 2;
+      grid-row: 2 / 3;
+    }
+    .main {
+      grid-column: col-start 3 / span 5;
+      grid-row: 2 / 3;
+    }
+  }
+
+  @include mq(l) {
+    /* Desktop + 1024px */
+    grid-template-columns: repeat(12, [col-start] 1fr);
+
+    .header {
+      grid-column: col-start / span 13;
+    }
+    .aside {
+      grid-column: col-start / span 3;
+     grid-row: 2 / 3;
+    }
+    .main {
+      grid-column: col-start 4 / span 10;
+      grid-row: 2 / 3;
+    }
+  }
+}
