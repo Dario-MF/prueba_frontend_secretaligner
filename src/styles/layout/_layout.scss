@@ -4,7 +4,7 @@
   /* Mobile */
   display: grid;
   grid-template-columns: repeat(3, [col-start] 1fr);
-  grid-gap: 20px;
+ 
   
   .header {
     grid-column: col-start / span 3;

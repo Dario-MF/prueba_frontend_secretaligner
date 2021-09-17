@@ -1,4 +1,13 @@
+export interface IpacienteInitialState {
+    pacientes: IPaciente[];
+    visionado: Visionado;
+    pacientesPorPagina: number;
+}
 
+export enum Visionado {
+    targeta = 'targeta',
+    lista = 'lista'
+}
 
 export interface IPaciente {
     datos_paciente: DatosPaciente;

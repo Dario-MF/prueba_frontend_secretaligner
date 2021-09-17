@@ -9,7 +9,7 @@ $z-fixed   : 1500;
 $z-modal   : 1000;
 
 /* fuentes */
-$font-family:'Raleway', sans-serif;
+$font-family: 'Roboto', sans-serif;
 $font-size-big: 2rem;
 $font-size-medium: 1.3rem;
 $font-size: 16px;
@@ -19,14 +19,14 @@ $color-important : #d83033;
 $color-urgent : #e2a026;
 $color-info:#19a0ee;
 $color-first: rgb(19, 19, 19);
-$color-second: rgb(196, 196, 196);
+$color-second: rgb(216, 216, 216);
 $color-third : #53be22;
 $color-fourth : rgb(20, 26, 77);
 $color-accent : #004e92;
 
-$color-text-dark:rgb(22, 22, 22);
+$color-text-dark:rgb(63, 62, 62);
 $color-text-medium: rgb(107, 107, 107);
-$color-text-ligth: rgb(248, 248, 248);
+$color-text-ligth: rgb(190, 190, 190);
 
 /* Mq break */
 $breakpoints: (
