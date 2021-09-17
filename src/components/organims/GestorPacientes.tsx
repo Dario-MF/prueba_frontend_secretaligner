@@ -1,13 +1,16 @@
+import { useContext } from "react";
+import PacientesContext from "../../context/pacientes/PacientesContext";
 import ActionsGestorPacientes from "./ActionsGestorPacientes";
 import ListadoPacientes from "./ListadoPacientes";
 import OrdenarPacientes from "./OrdenarPacientes";
 import PaginarPacientes from "./PaginarPacientes";
+import TargetasPacientes from "./TargetasPacientes";
 
 
 
 const GestorPacientes = () => {
 
-
+    const { pacientesState } = useContext(PacientesContext);
 
 
     return (
@@ -23,8 +26,16 @@ const GestorPacientes = () => {
                     <ActionsGestorPacientes />
                 </header>
                 <main className="gestor_pacientes__list">
-                    <OrdenarPacientes />
-                    <ListadoPacientes />
+                    <OrdenarPacientes
+                        visionado={pacientesState.visionado}
+                        pacientesPorPagina={pacientesState.pacientesPorPagina}
+                    />
+                    {
+                        (pacientesState.visionado === 'lista')
+                            ? <ListadoPacientes />
+                            : <TargetasPacientes />
+                    }
+
                     <PaginarPacientes />
                 </main>
 

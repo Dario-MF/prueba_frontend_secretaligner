@@ -1,6 +1,6 @@
 export interface IpacienteInitialState {
     pacientes: IPaciente[];
-    visionado: Visionado;
+    visionado: string | number;
     pacientesPorPagina: number;
 }
 

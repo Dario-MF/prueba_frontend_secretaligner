@@ -4,4 +4,7 @@ export enum pacientesActionTypes {
     pacienteDelete = '[PACIENTE]DELETE',
     pacienteCreate = '[PACIENTE]CREATE',
     pacienteUpdate = '[PACIENTE]UPDATE',
+
+    listOrder = '[LIST]ORDER',
+    pacientesPorPagina = '[PAGINACION]NUMERO_PACIENTES'
 };
