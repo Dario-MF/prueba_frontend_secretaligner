@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import PacientesContext from "../../context/pacientes/PacientesContext";
+import Modal from "../templates/Modal";
 import ActionsGestorPacientes from "./ActionsGestorPacientes";
 import ListadoPacientes from "./ListadoPacientes";
 import OrdenarPacientes from "./OrdenarPacientes";
@@ -41,6 +42,10 @@ const GestorPacientes = () => {
 
 
             </main>
+            {
+                pacientesState.modalNewPacienteIsOpen && <Modal />
+            }
+
         </article>
     )
 }

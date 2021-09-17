@@ -6,5 +6,8 @@ export enum pacientesActionTypes {
     pacienteUpdate = '[PACIENTE]UPDATE',
 
     listOrder = '[LIST]ORDER',
-    pacientesPorPagina = '[PAGINACION]NUMERO_PACIENTES'
+    pacientesPorPagina = '[PAGINACION]NUMERO_PACIENTES',
+
+    openModalNewPaciente = '[MODAL]OPEN_NEW_PACIENTE',
+    closeModalNewPaciente = '[MODAL]CLOSE_NEW_PACIENTE'
 };

@@ -4,9 +4,11 @@ import { pacientesActionTypes } from './pacientesActionTypes';
 
 
 type pacientesActions = (
-    { type: pacientesActionTypes.pacientesAddData, payload: IPaciente } |
+    { type: pacientesActionTypes.pacientesAddData, payload: any } |
     { type: pacientesActionTypes.listOrder, payload: string | number } |
-    { type: pacientesActionTypes.pacientesPorPagina, payload: number }
+    { type: pacientesActionTypes.pacientesPorPagina, payload: number } |
+    { type: pacientesActionTypes.openModalNewPaciente, payload: boolean } |
+    { type: pacientesActionTypes.closeModalNewPaciente, payload: boolean }
 )
 
 
@@ -20,7 +22,7 @@ export const pacientesReducer = (
         case pacientesActionTypes.pacientesAddData:
             return {
                 ...state,
-                pacientes: [...state.pacientes, action.payload]
+                pacientes: [action.payload, ...state.pacientes]
             }
         case pacientesActionTypes.listOrder:
             return {
@@ -31,6 +33,16 @@ export const pacientesReducer = (
             return {
                 ...state,
                 pacientesPorPagina: action.payload,
+            }
+        case pacientesActionTypes.openModalNewPaciente:
+            return {
+                ...state,
+                modalNewPacienteIsOpen: action.payload,
+            }
+        case pacientesActionTypes.closeModalNewPaciente:
+            return {
+                ...state,
+                modalNewPacienteIsOpen: action.payload,
             }
 
         default:

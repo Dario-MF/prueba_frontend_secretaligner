@@ -2,6 +2,7 @@ export interface IpacienteInitialState {
     pacientes: IPaciente[];
     visionado: string | number;
     pacientesPorPagina: number;
+    modalNewPacienteIsOpen: boolean;
 }
 
 export enum Visionado {

@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { pacientesReducer } from './pacientesReducer';
 import PacientesContext from './PacientesContext';
 import { Pacientes } from "../../controllers/pacienteController";
-import { IpacienteInitialState, Visionado } from "../../interfaces/pacienteInterface";
+import { IPaciente, IpacienteInitialState, Visionado } from "../../interfaces/pacienteInterface";
 import { pacientesActionTypes } from "./pacientesActionTypes";
 
 const pacientes = new Pacientes();
@@ -10,7 +10,8 @@ const pacientes = new Pacientes();
 const INITIAL_STATE: IpacienteInitialState = {
     pacientes: pacientes.pacientesArr,
     visionado: Visionado.lista,
-    pacientesPorPagina: 6
+    pacientesPorPagina: 6,
+    modalNewPacienteIsOpen: false
 }
 
 interface Iprops {
@@ -27,6 +28,15 @@ const PacientesProvaider = ({ children }: Iprops) => {
     const selectPacientesPorPagina = (number: number) => {
         dispatch({ type: pacientesActionTypes.pacientesPorPagina, payload: number });
     }
+    const openModalNewPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.openModalNewPaciente, payload: isOpen });
+    }
+    const closeModalNewPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.closeModalNewPaciente, payload: isOpen });
+    }
+    const createNewPaciente = (data: any) => {
+        dispatch({ type: pacientesActionTypes.pacientesAddData, payload: data });
+    }
 
 
 
@@ -34,7 +44,10 @@ const PacientesProvaider = ({ children }: Iprops) => {
         <PacientesContext.Provider value={{
             pacientesState,
             selectVistaPacientes,
-            selectPacientesPorPagina
+            selectPacientesPorPagina,
+            openModalNewPaciente,
+            closeModalNewPaciente,
+            createNewPaciente
         }}>
             {children}
         </PacientesContext.Provider>

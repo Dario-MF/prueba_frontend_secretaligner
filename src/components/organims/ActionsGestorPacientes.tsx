@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import PacientesContext from "../../context/pacientes/PacientesContext";
 import Button from "../atoms/Button";
 import ImputSearch from "../atoms/ImputSearch";
 import HeaderDescription from "../molecules/HeaderDescription"
 
 
 const ActionsGestorPacientes = () => {
+    const { openModalNewPaciente } = useContext(PacientesContext);
 
-    const openModal = (modal: string) => {
+    const openModal = () => {
+        openModalNewPaciente(true)
+    }
+    const downloadCsv = () => {
 
     }
 
@@ -19,7 +25,7 @@ const ActionsGestorPacientes = () => {
                     type={'button'}
                     icon="bi-plus-lg"
                     value="Nuevo Paciente"
-                    action={() => openModal('newPaciente')}
+                    action={openModal}
 
                 />
                 <Button
@@ -27,7 +33,7 @@ const ActionsGestorPacientes = () => {
                     type={'button'}
                     icon="bi-file-earmark-medical-fill"
                     value="Descargar CSV"
-                    action={() => openModal('downloadCsv')}
+                    action={downloadCsv}
                 />
             </div>
         </>
