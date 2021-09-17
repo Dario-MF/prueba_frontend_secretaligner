@@ -1,4 +1,4 @@
-import { IPaciente, IpacienteInitialState } from '../../interfaces/pacienteInterface';
+import { IpacienteInitialState } from '../../interfaces/pacienteInterface';
 import { pacientesActionTypes } from './pacientesActionTypes';
 
 

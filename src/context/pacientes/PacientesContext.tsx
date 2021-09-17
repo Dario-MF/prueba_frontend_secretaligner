@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { IpacienteInitialState, IPaciente } from '../../interfaces/pacienteInterface';
+import { IpacienteInitialState } from '../../interfaces/pacienteInterface';
 
 
 

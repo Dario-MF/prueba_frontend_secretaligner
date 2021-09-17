@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { pacientesReducer } from './pacientesReducer';
 import PacientesContext from './PacientesContext';
 import { Pacientes } from "../../controllers/pacienteController";
-import { IPaciente, IpacienteInitialState, Visionado } from "../../interfaces/pacienteInterface";
+import { IpacienteInitialState, Visionado } from "../../interfaces/pacienteInterface";
 import { pacientesActionTypes } from "./pacientesActionTypes";
 
 const pacientes = new Pacientes();

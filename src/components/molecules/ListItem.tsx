@@ -1,4 +1,4 @@
-import { IPaciente, ObjetivoTratamiento, FichaDental } from '../../interfaces/pacienteInterface';
+import { IPaciente } from '../../interfaces/pacienteInterface';
 import { randomColor } from '../../libs/randomColor';
 
 interface Iprops {
