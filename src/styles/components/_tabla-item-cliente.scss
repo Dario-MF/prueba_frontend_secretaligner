@@ -1,0 +1,74 @@
+
+.listItemClient__dataPersonal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.listItemClient__dataPersonal__imgIniciales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    & p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        color: whitesmoke;
+    }
+}
+.listItemClient__dataPersonal__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.listItemClient__dataPersonal__nombreCompleto {
+    font-size: 1.1rem;
+    width: 100%;
+    margin: 0 0 .2rem;
+}
+
+.listItemClient__dataPersonal__fechaNacimiento {
+    font-size: .9rem;
+    color: $color-text-ligth;
+    margin: 0;
+   
+}
+
+.bi-calendar4-event {
+    letter-spacing: 5px;
+}
+
+
+.listItemClient__estado {
+    border-radius: 25px;
+    text-align: center;
+    color: whitesmoke;
+    padding: 1rem 1rem;
+    background-color: $color-accent;
+}
+
+// Select 
+.listItemClient__selectAction {
+    padding: .4em 1.4em .3em .8em;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+    border-radius: .3em;
+    &::-ms-expand {
+        display: none;
+    }
+    &:hover {
+        border-color: #888;
+    }
+    &:focus {
+        border-color: #aaa;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+        color: #222; 
+        outline: none;
+    }
+}
