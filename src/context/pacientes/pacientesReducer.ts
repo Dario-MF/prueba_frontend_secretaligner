@@ -8,7 +8,8 @@ type pacientesActions = (
     { type: pacientesActionTypes.listOrder, payload: string | number } |
     { type: pacientesActionTypes.pacientesPorPagina, payload: number } |
     { type: pacientesActionTypes.openModalNewPaciente, payload: boolean } |
-    { type: pacientesActionTypes.closeModalNewPaciente, payload: boolean }
+    { type: pacientesActionTypes.closeModalNewPaciente, payload: boolean } |
+    { type: pacientesActionTypes.searchPacientes, payload: any }
 )
 
 
@@ -43,6 +44,11 @@ export const pacientesReducer = (
             return {
                 ...state,
                 modalNewPacienteIsOpen: action.payload,
+            }
+        case pacientesActionTypes.searchPacientes:
+            return {
+                ...state,
+                resultadoSearchPaciente: action.payload,
             }
 
         default:

@@ -10,7 +10,8 @@ interface IpacientesContextProps {
     selectPacientesPorPagina: (number: number) => void;
     openModalNewPaciente: (isOpen: boolean) => void;
     closeModalNewPaciente: (isOpen: boolean) => void;
-    createNewPaciente: (data: any) => void
+    createNewPaciente: (data: any) => void;
+    searchPaciente: (data: any) => void;
 };
 
 const PacientesContext = createContext<IpacientesContextProps>({} as IpacientesContextProps);

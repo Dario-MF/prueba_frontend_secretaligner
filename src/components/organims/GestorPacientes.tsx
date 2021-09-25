@@ -10,7 +10,6 @@ import TargetasPacientes from "./TargetasPacientes";
 
 
 const GestorPacientes = () => {
-
     const { pacientesState } = useContext(PacientesContext);
 
 

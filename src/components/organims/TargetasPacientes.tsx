@@ -5,12 +5,12 @@ import CardPaciente from "../molecules/CardPaciente";
 
 
 
-const TargetasPacientes = () => {
-    const { pacientesState } = useContext(PacientesContext);
+const TargetasPacientes = ({ pacientes }: any) => {
+    //const { pacientesState } = useContext(PacientesContext);
     return (
         <div className="cardsContainer">
             {
-                pacientesState.pacientes.map((paciente: IPaciente) => (
+                pacientes.map((paciente: IPaciente) => (
                     <CardPaciente
                         key={paciente.id}
                         paciente={paciente}

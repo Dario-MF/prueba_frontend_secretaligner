@@ -7,6 +7,7 @@ export enum pacientesActionTypes {
 
     listOrder = '[LIST]ORDER',
     pacientesPorPagina = '[PAGINACION]NUMERO_PACIENTES',
+    searchPacientes = '[SEARCH]PACIENTE',
 
     openModalNewPaciente = '[MODAL]OPEN_NEW_PACIENTE',
     closeModalNewPaciente = '[MODAL]CLOSE_NEW_PACIENTE'

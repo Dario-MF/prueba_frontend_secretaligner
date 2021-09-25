@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import PacientesContext from "../../context/pacientes/PacientesContext";
 import { IPaciente } from "../../interfaces/pacienteInterface";
 import ListItem from "../molecules/ListItem";
@@ -7,6 +7,9 @@ import ListItem from "../molecules/ListItem";
 const ListadoPacientes = () => {
 
     const { pacientesState } = useContext(PacientesContext);
+
+    const pacientes = pacientesState.pacientes;
+
 
     return (
         <table className="tablaClientes">
@@ -21,12 +24,20 @@ const ListadoPacientes = () => {
             </thead>
             <tbody>
                 {
-                    pacientesState.pacientes.map((paciente: IPaciente) => (
-                        <ListItem
-                            key={paciente.id}
-                            paciente={paciente}
-                        />
-                    ))
+                    (pacientesState.resultadoSearchPaciente.length > 0)
+                        ? pacientesState.resultadoSearchPaciente.map((paciente: IPaciente) => (
+                            <ListItem
+                                key={paciente.id}
+                                paciente={paciente}
+                            />
+                        ))
+                        : pacientes.map((paciente: IPaciente) => (
+                            <ListItem
+                                key={paciente.id}
+                                paciente={paciente}
+                            />
+                        ))
+
                 }
             </tbody>
         </table>
