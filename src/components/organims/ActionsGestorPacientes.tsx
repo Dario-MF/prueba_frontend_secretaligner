@@ -1,24 +1,25 @@
+import { CSVLink } from 'react-csv';
 import { useContext } from "react";
 import PacientesContext from "../../context/pacientes/PacientesContext";
 import Button from "../atoms/Button";
 import ImputSearch from "../atoms/ImputSearch";
 import HeaderDescription from "../molecules/HeaderDescription"
+import { convertToCSV } from '../../libs/convertToCsv';
 
 
-const ActionsGestorPacientes = () => {
-    const { openModalNewPaciente } = useContext(PacientesContext);
+const ActionsGestorPacientes = ({ onSearch }: any) => {
+    const { openModalNewPaciente, pacientesState } = useContext(PacientesContext);
 
     const openModal = () => {
         openModalNewPaciente(true)
     }
-    const downloadCsv = () => {
 
-    }
+    const data = convertToCSV(pacientesState.pacientes)
 
     return (
         <>
             <HeaderDescription />
-            <ImputSearch />
+            <ImputSearch onSearch={onSearch} />
             <div>
                 <Button
                     className={'btn--btnNewPaciente'}
@@ -28,13 +29,15 @@ const ActionsGestorPacientes = () => {
                     action={openModal}
 
                 />
-                <Button
-                    className={'btn--btnDownloadCsv'}
-                    type={'button'}
-                    icon="bi-file-earmark-medical-fill"
-                    value="Descargar CSV"
-                    action={downloadCsv}
-                />
+                <CSVLink
+                    data={data}
+                    filename={"pacientes.csv"}
+                    className="btn btn--btnDownloadCsv"
+                    target="_blank"
+                >
+                    <i className={`bi bi-file-earmark-medical-fill`}></i>
+                    Descargar CSV
+                </CSVLink>;
             </div>
         </>
     )

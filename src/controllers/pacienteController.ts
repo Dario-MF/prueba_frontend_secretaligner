@@ -22,15 +22,6 @@ export class Pacientes {
     public get pacientesArr(): IPaciente[] {
         return this.pacientes;
     }
-    public buscarPacienteNombreApellido(busqueda: string): IPaciente[] {
-        const resultadoBusqueda = this.pacientes.filter(paciente => {
-            return (
-                paciente.datos_paciente.nombre.toLowerCase().includes(busqueda) ||
-                paciente.datos_paciente.apellidos.toLowerCase().includes(busqueda)
-            )
-        })
-        return resultadoBusqueda;
-    }
 
     public sortPacientesName(): IPaciente[] {
         const shortArrPacientes = this.pacientes.sort((a, b) => {
