@@ -37,7 +37,7 @@ const ActionsGestorPacientes = ({ onSearch }: any) => {
                 >
                     <i className={`bi bi-file-earmark-medical-fill`}></i>
                     Descargar CSV
-                </CSVLink>;
+                </CSVLink>
             </div>
         </>
     )
