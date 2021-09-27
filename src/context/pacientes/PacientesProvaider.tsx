@@ -12,7 +12,8 @@ const INITIAL_STATE: IpacienteInitialState = {
     resultadoSearchPaciente: [],
     visionado: Visionado.lista,
     pacientesPorPagina: 6,
-    modalNewPacienteIsOpen: false
+    modalNewPacienteIsOpen: false,
+    modalFichaPacienteIsOpen: false
 }
 
 interface Iprops {
@@ -35,6 +36,12 @@ const PacientesProvaider = ({ children }: Iprops) => {
     const closeModalNewPaciente = (isOpen: boolean) => {
         dispatch({ type: pacientesActionTypes.closeModalNewPaciente, payload: isOpen });
     }
+    const openModalFichaPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.openModalFichaPaciente, payload: isOpen });
+    }
+    const closeModalFichaPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.closeModalFichaPaciente, payload: isOpen });
+    }
     const createNewPaciente = (data: any) => {
         dispatch({ type: pacientesActionTypes.pacientesAddData, payload: data });
     }
@@ -51,6 +58,8 @@ const PacientesProvaider = ({ children }: Iprops) => {
             selectPacientesPorPagina,
             openModalNewPaciente,
             closeModalNewPaciente,
+            openModalFichaPaciente,
+            closeModalFichaPaciente,
             createNewPaciente,
             searchPaciente
         }}>

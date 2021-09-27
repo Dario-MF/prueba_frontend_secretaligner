@@ -10,5 +10,7 @@ export enum pacientesActionTypes {
     searchPacientes = '[SEARCH]PACIENTE',
 
     openModalNewPaciente = '[MODAL]OPEN_NEW_PACIENTE',
-    closeModalNewPaciente = '[MODAL]CLOSE_NEW_PACIENTE'
+    closeModalNewPaciente = '[MODAL]CLOSE_NEW_PACIENTE',
+    openModalFichaPaciente = '[MODAL]OPEN_FICHA_PACIENTE',
+    closeModalFichaPaciente = '[MODAL]CLOSE_FICHA_PACIENTE'
 };

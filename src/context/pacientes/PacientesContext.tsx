@@ -10,6 +10,8 @@ interface IpacientesContextProps {
     selectPacientesPorPagina: (number: number) => void;
     openModalNewPaciente: (isOpen: boolean) => void;
     closeModalNewPaciente: (isOpen: boolean) => void;
+    openModalFichaPaciente: (isOpen: boolean) => void;
+    closeModalFichaPaciente: (isOpen: boolean) => void;
     createNewPaciente: (data: any) => void;
     searchPaciente: (data: any) => void;
 };
