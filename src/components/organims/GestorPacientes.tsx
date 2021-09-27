@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PacientesContext from "../../context/pacientes/PacientesContext";
 import Modal from "../templates/Modal";
 import ActionsGestorPacientes from "./ActionsGestorPacientes";
@@ -38,26 +38,37 @@ const GestorPacientes = () => {
             return pacientes.slice(currentPage, currentPage + pacientesPorPagina);
         }
     }
-
     const nextPage = () => {
         if (currentPage + pacientesPorPagina < pacientesFiltered().length) {
             setCurrentPage(currentPage + pacientesPorPagina);
         }
+
     };
     const prevPage = () => {
         if (currentPage !== 0) {
             setCurrentPage(currentPage - pacientesPorPagina);
         }
+
     };
     const toPage = (toIndex: number) => {
         setCurrentPage(Number(toIndex));
-        console.log(toIndex)
+
     };
 
     const onSearch = (event: any) => {
         setCurrentPage(0);
         setSearch(event.target.value);
     }
+
+    useEffect(() => {
+        const btns = document.getElementsByClassName('btn--btnToPage');
+        const idx = currentPage / pacientesPorPagina;
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].className = 'btn btn--btnToPage'
+        }
+
+        btns[idx].className = 'btn btn--btnToPage  isCurrentPage';
+    }, [currentPage, pacientesPorPagina]);
 
 
     return (
@@ -77,16 +88,18 @@ const GestorPacientes = () => {
                         visionado={pacientesState.visionado}
                         pacientesPorPagina={pacientesState.pacientesPorPagina}
                     />
-                    {
-                        (pacientesState.visionado === 'lista')
-                            ? <ListadoPacientes pacientes={paginacion()} />
-                            : <TargetasPacientes pacientes={paginacion()} />
-                    }
+                    <div className="listContainer">
+                        {
+                            (pacientesState.visionado === 'lista')
+                                ? <ListadoPacientes pacientes={paginacion()} />
+                                : <TargetasPacientes pacientes={paginacion()} />
+                        }
+                    </div>
                     <PaginarPacientes
                         nextPage={nextPage}
                         prevPage={prevPage}
                         toPage={toPage}
-                        pacientesLength={pacientesFiltered().length}
+                        pacientes={pacientesFiltered()}
                     />
                 </main>
             </main>

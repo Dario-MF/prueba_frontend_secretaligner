@@ -17,7 +17,7 @@ const Button = ({ className, id, value, action, type, icon }: Iprops) => {
         <button
             type={type}
             className={`btn ${className}`}
-            onClick={() => handleClick(id)}
+            onClick={(e) => handleClick(id)}
         >
             {icon && <i className={`bi ${icon}`}></i>}
             {" " + value}

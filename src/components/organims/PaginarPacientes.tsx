@@ -7,18 +7,19 @@ interface Iprops {
     nextPage: () => void;
     prevPage: () => void;
     toPage: (number: number) => void;
-    pacientesLength: number;
+    pacientes: any;
 }
 
-const PaginarPacientes = ({ nextPage, prevPage, toPage, pacientesLength }: Iprops) => {
+const PaginarPacientes = ({ nextPage, prevPage, toPage, pacientes }: Iprops) => {
     const { pacientesState } = useContext(PacientesContext);
     const { pacientesPorPagina } = pacientesState;
 
+
     const btnPages = () => {
-        let arrBtns = []
-        for (let i = 0; i <= pacientesLength;) {
+        let arrBtns = [];
+        for (let i = 0; i <= pacientes.length;) {
             arrBtns.push({
-                value: i,
+                value: i
             })
             i = i + pacientesPorPagina
         }
@@ -39,7 +40,7 @@ const PaginarPacientes = ({ nextPage, prevPage, toPage, pacientesLength }: Iprop
                 btnPages().map((btn, i) => (
                     <Button
                         key={btn.value}
-                        className={'btn--btnToPage'}
+                        className={`btn--btnToPage`}
                         id={String(btn.value)}
                         type={'button'}
                         value={String(i + 1)}
