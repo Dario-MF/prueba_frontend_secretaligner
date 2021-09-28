@@ -1,21 +1,26 @@
+import { useContext } from 'react';
+import PacientesContext from '../../context/pacientes/PacientesContext';
 import { IPaciente } from '../../interfaces/pacienteInterface';
 import { randomColor } from '../../libs/randomColor';
 
 interface Iprops {
     paciente: IPaciente;
-}
-
-
+};
 const ListItem = ({ paciente }: Iprops) => {
     const { datos_paciente, ficha_dental } = paciente;
-
+    const { openModalFichaPaciente, focusPacienteId } = useContext(PacientesContext);
 
     const handleClick = (action: string): void => {
         // acciones sobre paciente
-    }
+    };
+    const openModal = () => {
+        document.body.style.overflow = "hidden";
+        focusPacienteId(paciente.id!);
+        openModalFichaPaciente(true);
+    };
 
     return (
-        <tr className="listItemClient">
+        <tr className="listItemClient" onClick={openModal} >
             <td>
                 <div className="listItemClient__dataPersonal">
                     <div className="listItemClient__dataPersonal__imgIniciales">
@@ -50,7 +55,10 @@ const ListItem = ({ paciente }: Iprops) => {
                 </p>
             </td>
             <td>
-                <select className="listItemClient__selectAction">
+                <select
+                    className="listItemClient__selectAction"
+                    onClick={e => e.stopPropagation()}
+                >
                     <option >Acciones</option>
                     <option onClick={() => handleClick('editar')}>Editar</option>
                     <option onClick={() => handleClick('finalizar')}>Finalizar</option>
@@ -59,6 +67,6 @@ const ListItem = ({ paciente }: Iprops) => {
             </td>
         </tr>
     )
-}
+};
 
 export default ListItem;

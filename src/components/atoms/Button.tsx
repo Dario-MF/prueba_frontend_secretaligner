@@ -6,12 +6,12 @@ interface Iprops {
     id?: string;
     icon?: string;
     action: (number: any) => void;
-}
+};
 
 const Button = ({ className, id, value, action, type, icon }: Iprops) => {
     const handleClick = (id: any = null) => {
         action(id);
-    }
+    };
 
     return (
         <button
@@ -23,6 +23,6 @@ const Button = ({ className, id, value, action, type, icon }: Iprops) => {
             {" " + value}
         </button>
     )
-}
+};
 
 export default Button;

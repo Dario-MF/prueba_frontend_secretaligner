@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import PacientesContext from "../../context/pacientes/PacientesContext";
 import Modal from "../templates/Modal";
+import ModalFichaPaciente from "../templates/ModalFichaPaciente";
 import ActionsGestorPacientes from "./ActionsGestorPacientes";
 import ListadoPacientes from "./ListadoPacientes";
 import OrdenarPacientes from "./OrdenarPacientes";
@@ -16,7 +17,6 @@ const GestorPacientes = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [search, setSearch] = useState('');
 
-
     const pacientesFiltered = () => {
         if (search.length > 0) {
             const filtered = pacientes.filter(paciente => {
@@ -29,7 +29,7 @@ const GestorPacientes = () => {
         } else {
             return pacientes;
         }
-    }
+    };
 
     const paginacion = () => {
         if (search.length > 0) {
@@ -37,39 +37,38 @@ const GestorPacientes = () => {
         } else {
             return pacientes.slice(currentPage, currentPage + pacientesPorPagina);
         }
-    }
+    };
     const nextPage = () => {
         if (currentPage + pacientesPorPagina < pacientesFiltered().length) {
             setCurrentPage(currentPage + pacientesPorPagina);
         }
-
     };
     const prevPage = () => {
-        if (currentPage !== 0) {
+        if (currentPage > 0) {
             setCurrentPage(currentPage - pacientesPorPagina);
         }
 
     };
     const toPage = (toIndex: number) => {
-        setCurrentPage(Number(toIndex));
-
+        if (Number(toIndex) >= 0) {
+            setCurrentPage(Number(toIndex));
+        }
     };
-
     const onSearch = (event: any) => {
         setCurrentPage(0);
         setSearch(event.target.value);
-    }
-
+    };
+    useEffect(() => {
+        setCurrentPage(0);
+    }, [pacientesPorPagina]);
     useEffect(() => {
         const btns = document.getElementsByClassName('btn--btnToPage');
-        const idx = currentPage / pacientesPorPagina;
+        const idx = Math.trunc(currentPage / pacientesPorPagina);
         for (let i = 0; i < btns.length; i++) {
             btns[i].className = 'btn btn--btnToPage'
         }
-
         btns[idx].className = 'btn btn--btnToPage  isCurrentPage';
     }, [currentPage, pacientesPorPagina]);
-
 
     return (
         <article className="pacientes_component">
@@ -106,7 +105,9 @@ const GestorPacientes = () => {
             {
                 pacientesState.modalNewPacienteIsOpen && <Modal />
             }
-
+            {
+                pacientesState.modalFichaPacienteIsOpen && <ModalFichaPaciente />
+            }
         </article>
     )
 }

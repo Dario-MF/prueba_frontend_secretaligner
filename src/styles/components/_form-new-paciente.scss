@@ -1,8 +1,10 @@
 .form__newPaciente {
     width: 50vw;
+    height: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .form__newPaciente__field {
@@ -146,6 +148,10 @@
     border-radius: 10px;
     color: whitesmoke;
     margin-top: 2em;
+    cursor: pointer;
+    &:hover{
+      filter: saturate(1.5);
+    }
 
     &.cancel {
       background: $color-important;

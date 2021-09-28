@@ -1,16 +1,13 @@
 import { FieldError, UseFormRegister } from 'react-hook-form';
 
-
 type TypesInputForm = {
     error: FieldError | undefined;
     register: UseFormRegister<any>;
     name: any | string;
     type: React.HTMLInputTypeAttribute | undefined;
-}
-
+};
 
 const InputForm = ({ error, register, name, type }: TypesInputForm) => {
-
     return (
         <div className="form__field">
             <input

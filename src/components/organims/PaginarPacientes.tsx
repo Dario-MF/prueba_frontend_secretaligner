@@ -14,7 +14,6 @@ const PaginarPacientes = ({ nextPage, prevPage, toPage, pacientes }: Iprops) => 
     const { pacientesState } = useContext(PacientesContext);
     const { pacientesPorPagina } = pacientesState;
 
-
     const btnPages = () => {
         let arrBtns = [];
         for (let i = 0; i <= pacientes.length;) {
@@ -25,8 +24,6 @@ const PaginarPacientes = ({ nextPage, prevPage, toPage, pacientes }: Iprops) => 
         }
         return arrBtns;
     };
-
-
 
     return (
         <div className="paginacion">

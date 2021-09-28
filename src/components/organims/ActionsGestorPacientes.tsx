@@ -13,7 +13,6 @@ const ActionsGestorPacientes = ({ onSearch }: any) => {
     const openModal = () => {
         openModalNewPaciente(true)
     }
-
     const data = convertToCSV(pacientesState.pacientes)
 
     return (
@@ -27,7 +26,6 @@ const ActionsGestorPacientes = ({ onSearch }: any) => {
                     icon="bi-plus-lg"
                     value="Nuevo Paciente"
                     action={openModal}
-
                 />
                 <CSVLink
                     data={data}

@@ -19,6 +19,7 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
         const paciente = parseDataModal(data);
         createNewPaciente(paciente)
         modalClose();
+        document.body.style.overflowY = "scroll";
     });
 
 
@@ -130,7 +131,10 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
                 <button
                     className="modal__btn__submit cancel"
                     type="button"
-                    onClick={() => modalClose()}
+                    onClick={() => {
+                        modalClose()
+                        document.body.style.overflowY = "scroll";
+                    }}
                 >Cancelar
                 </button>
                 <button

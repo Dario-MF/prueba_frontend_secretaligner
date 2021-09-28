@@ -1,7 +1,5 @@
 
-
 const ImputSearch = ({ onSearch }: any) => {
-
     return (
         <div className="search__field">
             <i className="bi bi-search"></i>
@@ -13,6 +11,6 @@ const ImputSearch = ({ onSearch }: any) => {
             />
         </div>
     )
-}
+};
 
-export default ImputSearch
+export default ImputSearch;

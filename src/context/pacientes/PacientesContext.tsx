@@ -14,6 +14,7 @@ interface IpacientesContextProps {
     closeModalFichaPaciente: (isOpen: boolean) => void;
     createNewPaciente: (data: any) => void;
     searchPaciente: (data: any) => void;
+    focusPacienteId: (id: string) => void;
 };
 
 const PacientesContext = createContext<IpacientesContextProps>({} as IpacientesContextProps);

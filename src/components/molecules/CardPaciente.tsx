@@ -1,22 +1,28 @@
+import { useContext } from "react";
+import PacientesContext from "../../context/pacientes/PacientesContext";
 import { IPaciente } from "../../interfaces/pacienteInterface";
 import { randomColor } from "../../libs/randomColor";
 import Button from "../atoms/Button";
 
-
 interface Iprops {
-    paciente: IPaciente
-}
-
+    paciente: IPaciente;
+};
 
 const CardPaciente = ({ paciente }: Iprops) => {
     const { datos_paciente, ficha_dental } = paciente;
+    const { openModalFichaPaciente, focusPacienteId } = useContext(PacientesContext);
 
     const handleClick = (id: string | undefined): void => {
         // acciones sobre paciente
-    }
+    };
+    const openModal = () => {
+        document.body.style.overflow = "hidden";
+        focusPacienteId(paciente.id!);
+        openModalFichaPaciente(true);
+    };
 
     return (
-        <div className="cardPaciente">
+        <div className="cardPaciente" onClick={openModal}>
             <div className="cardPaciente__data">
                 <div className="listItemClient__dataPersonal">
                     <div className="listItemClient__dataPersonal__imgIniciales">
