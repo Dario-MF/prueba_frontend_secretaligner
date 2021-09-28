@@ -1,6 +1,5 @@
 
 const HeaderDescription = () => {
-
     return (
         <div className="gestor_pacientes__header__descrption">
             <div className="gestor_pacientes__header__icon">
@@ -16,6 +15,6 @@ const HeaderDescription = () => {
             </div>
         </div>
     )
-}
+};
 
 export default HeaderDescription;

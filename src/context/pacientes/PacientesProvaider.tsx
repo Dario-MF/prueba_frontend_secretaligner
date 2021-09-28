@@ -9,9 +9,12 @@ const pacientes = new Pacientes();
 
 const INITIAL_STATE: IpacienteInitialState = {
     pacientes: pacientes.pacientesArr,
+    resultadoSearchPaciente: [],
     visionado: Visionado.lista,
     pacientesPorPagina: 6,
-    modalNewPacienteIsOpen: false
+    modalNewPacienteIsOpen: false,
+    modalFichaPacienteIsOpen: false,
+    pacienteFocus: ''
 }
 
 interface Iprops {
@@ -34,8 +37,20 @@ const PacientesProvaider = ({ children }: Iprops) => {
     const closeModalNewPaciente = (isOpen: boolean) => {
         dispatch({ type: pacientesActionTypes.closeModalNewPaciente, payload: isOpen });
     }
+    const openModalFichaPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.openModalFichaPaciente, payload: isOpen });
+    }
+    const closeModalFichaPaciente = (isOpen: boolean) => {
+        dispatch({ type: pacientesActionTypes.closeModalFichaPaciente, payload: isOpen });
+    }
     const createNewPaciente = (data: any) => {
         dispatch({ type: pacientesActionTypes.pacientesAddData, payload: data });
+    }
+    const searchPaciente = (data: any) => {
+        dispatch({ type: pacientesActionTypes.searchPacientes, payload: data });
+    }
+    const focusPacienteId = (id: string) => {
+        dispatch({ type: pacientesActionTypes.pacientesGet, payload: id });
     }
 
 
@@ -47,7 +62,11 @@ const PacientesProvaider = ({ children }: Iprops) => {
             selectPacientesPorPagina,
             openModalNewPaciente,
             closeModalNewPaciente,
-            createNewPaciente
+            openModalFichaPaciente,
+            closeModalFichaPaciente,
+            createNewPaciente,
+            searchPaciente,
+            focusPacienteId
         }}>
             {children}
         </PacientesContext.Provider>

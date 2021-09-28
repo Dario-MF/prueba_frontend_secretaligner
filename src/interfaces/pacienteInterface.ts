@@ -1,8 +1,11 @@
 export interface IpacienteInitialState {
     pacientes: IPaciente[];
+    resultadoSearchPaciente: any;
     visionado: string | number;
     pacientesPorPagina: number;
     modalNewPacienteIsOpen: boolean;
+    modalFichaPacienteIsOpen: boolean;
+    pacienteFocus: string;
 }
 
 export enum Visionado {

@@ -7,8 +7,11 @@ interface Iprops {
     modalClose: () => void;
 }
 
+
+
 const FormNewPaciente = ({ modalClose }: Iprops) => {
     const { createNewPaciente } = useContext(PacientesContext);
+
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -16,7 +19,9 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
         const paciente = parseDataModal(data);
         createNewPaciente(paciente)
         modalClose();
+        document.body.style.overflowY = "scroll";
     });
+
 
     return (
         <form className="form__newPaciente form" onSubmit={onSubmit}>
@@ -50,10 +55,11 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
                         }
                     })}
                 />
-                {errors.nombre && <p className="form__error">{errors.nombre.message}</p>}
+                {errors.apellidos && <p className="form__error">{errors.apellidos.message}</p>}
             </div>
-            <div className="form__signup__field form__field">
+            <div className="form__newPaciente__field">
                 <input
+                    className="input_text"
                     type="date"
                     placeholder="Fecha nacimiento"
                     {...register("fecha_nacimiento", {
@@ -62,10 +68,13 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
                 />
                 {errors.fecha_nacimiento && <p className="form__error">{errors.fecha_nacimiento.message}</p>}
             </div>
-            <div className="form__signup__field form__field">
-                <select {...register("sexo", {
-                    required: '*Sexo es requerido.',
-                })}>
+            <div className="form__newPaciente__field">
+                <select
+                    className="input_text"
+                    {...register("sexo", {
+                        required: '*Sexo es requerido.'
+                    })}
+                >
                     <option value="F">Mujer</option>
                     <option value="M">Hombre</option>
                 </select>
@@ -87,43 +96,58 @@ const FormNewPaciente = ({ modalClose }: Iprops) => {
                 />
                 {errors.clinica && <p className="form__error">{errors.clinica.message}</p>}
             </div>
-            <div className="form__newPaciente__field ">
+            <div className="form__newPaciente__field radio">
                 <input
                     {...register('recorte_alineadores')}
                     id='recorte_alineadores_encia'
                     value='Recortar dejando 1-3 mm de encía'
                     type="radio"
                 />
-                <label htmlFor="recorte_alineadores_encia">Recortar dejando 1-3 mm de encía </label>
+                <label htmlFor="recorte_alineadores_encia"><i></i>Recortar dejando 1-3 mm de encía </label>
                 {errors.recorte_alineadores && <p className="form__error">{errors.recorte_alineadores.message}</p>}
             </div>
-            <div className="form__newPaciente__field ">
+            <div className="form__newPaciente__field radio">
                 <input
                     {...register('recorte_alineadores')}
                     id='recorte_alineadores_cuellos'
                     value='Recortar a nivel de los cuellos'
                     type="radio"
                 />
-                <label htmlFor="recorte_alineadores_cuellos">Recortar a nivel de los cuellos </label>
+                <label htmlFor="recorte_alineadores_cuellos"><i></i>Recortar a nivel de los cuellos </label>
                 {errors.recorte_alineadores && <p className="form__error">{errors.recorte_alineadores.message}</p>}
             </div>
-            <div className="form__newPaciente__field ">
+            <div className="form__newPaciente__field checkbox">
                 <input
                     {...register('secretretainer')}
                     id='secretretainer'
                     value='true'
                     type="checkbox"
                 />
-                <label htmlFor="secretretainer">¿SecretRetainer?</label>
+                <label htmlFor="secretretainer"><i></i>¿SecretRetainer?</label>
                 {errors.secretretainer && <p className="form__error">{errors.secretretainer.message}</p>}
             </div>
 
-
-            <button
-                className="modal__btn__submit"
-                type="submit"
-            >SignUp
-            </button>
+            <div className="form__newPaciente_butons">
+                <button
+                    className="modal__btn__submit cancel"
+                    type="button"
+                    onClick={() => {
+                        modalClose()
+                        document.body.style.overflowY = "scroll";
+                    }}
+                >Cancelar
+                </button>
+                <button
+                    className="modal__btn__submit clean"
+                    type="reset"
+                >Limpiar
+                </button>
+                <button
+                    className="modal__btn__submit"
+                    type="submit"
+                >Guardar
+                </button>
+            </div>
         </form>
     )
 }

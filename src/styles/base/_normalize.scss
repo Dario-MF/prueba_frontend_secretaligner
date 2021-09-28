@@ -17,6 +17,8 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+/* size for capture img to pdf */
+.html2canvas-container { width: 1000px !important; height: 1000px !important; }
 
 /* Sections
    ========================================================================== */

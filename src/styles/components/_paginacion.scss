@@ -1,0 +1,39 @@
+
+
+.paginacion {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    & .btn--btnPrevPage {
+        border: 1px solid $color-second;
+        border-right: none;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    & .btn--btnNextPage {
+        border: 1px solid $color-second;
+        border-left: none;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+
+    }
+    & .btn--btnToPage {
+        border: 1px solid $color-second;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        &.isCurrentPage {
+            background-color: $color-info;
+            color: #FFFF;
+        }
+    }
+}
+
+.btn--btnNextPage,.btn--btnPrevPage, .btn--btnToPage  {
+    color: $color-text-medium;
+    &:hover{
+        background-color: $color-info;
+        color: #FFFF;
+    }
+}

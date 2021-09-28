@@ -9,13 +9,14 @@ const Modal = () => {
 
 
     const modalClose = () => {
-        closeModalNewPaciente(false)
+        document.body.style.overflowY = "scroll";
+        closeModalNewPaciente(false);
     }
 
     return (
         <div
-            className="modalContainer"
-            onClick={(e) => {
+            className="modalContainer animate__animated animate__fadeIn"
+            onClick={() => {
                 modalClose()
             }}
         >

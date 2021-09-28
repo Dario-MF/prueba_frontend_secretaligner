@@ -5,10 +5,9 @@ import Button from "../atoms/Button";
 interface Iprops {
     visionado: string | number;
     pacientesPorPagina: number;
-}
+};
 
 const OrdenarPacientes = ({ visionado, pacientesPorPagina }: Iprops) => {
-
     const { selectVistaPacientes, selectPacientesPorPagina } = useContext(PacientesContext)
 
     const handleClick = (id: string | number | undefined) => {
@@ -17,7 +16,7 @@ const OrdenarPacientes = ({ visionado, pacientesPorPagina }: Iprops) => {
         } else if (id === '6' || id === '12' || id === '18') {
             selectPacientesPorPagina(Number(id))
         }
-    }
+    };
 
     return (
         <div className="orderBar">
@@ -60,6 +59,6 @@ const OrdenarPacientes = ({ visionado, pacientesPorPagina }: Iprops) => {
             />
         </div>
     )
-}
+};
 
 export default OrdenarPacientes;

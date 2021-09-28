@@ -1,10 +1,26 @@
 ## Prueba tecnica para Secretaligner
 
-En el ejercicio 1 se tardo en desarrollar alrededor de 6h, sin llegar a terminar la paginación por falta de tiempo.
+Los puntos marcados con* corresponden a lo realizado adicionalmente a la anterior presentación.
+### En el ejercicio 1 
+    - Se tardo en desarrollar alrededor de 9h (quedando puntos sin acabar)
+    - *Adicionalmente se dedico 8h más para terminar el proyecto.
+        - barra de busqueda 1h
+        - paginación 3h.
+        - descarga en formato CSV 4h (nunca realize algo así y los 4 niveles de anidación en los datos complicaron las cosas)
 
-En el ejercicio 2 se desarrollo la logica permitiendo almacenar un nuevo paciente pero los estilos del formulario quedaron a medias por falta de tiempo, tiempo dedicado 3h.
+### En el ejercicio 2 
+    - Se desarrollo la logica, tiempo dedicado 3h.(quedando puntos sin acbar)
+    - *Adicionalmente se dedico 3h para terminar el ejercicio.
+        - se agregaron botones faltantes y su funcionalidad 1h.
+        - se crearon estilos personalizados para el formulario 2h.
 
-El ejercicio 3 no se pudo desarrollar por falta de tiempo, una pena no poder presentarlo, por que tenia la solucion para el ovalo de elementos.
+### En el ejercicio 3
+    -(no se pudo desarrollar por falta de tiempo)
+    - *Adicionalmente el ejercicio se temino, tiempo dedicado 5h.
+        - Modal con maquetacion 1h.
+        - Ovalo maxilar funcional 3h.
+        - Descargar ficha paciente en formato pdf 1h (se opto por imprimir archivo dando opcion de imprimir/guardar como pdf)
 
-Adicionalmente me gustaria recalcar que los tiempos de desarrollo han sido mayores a lo esperado, llevo 3 semanas programando con Typescript y aún se me resiste un poco.
+
+
 

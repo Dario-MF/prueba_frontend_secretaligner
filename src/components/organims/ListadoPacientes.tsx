@@ -1,12 +1,8 @@
-import { useContext } from "react";
-import PacientesContext from "../../context/pacientes/PacientesContext";
 import { IPaciente } from "../../interfaces/pacienteInterface";
 import ListItem from "../molecules/ListItem";
 
 
-const ListadoPacientes = () => {
-
-    const { pacientesState } = useContext(PacientesContext);
+const ListadoPacientes = ({ pacientes }: any) => {
 
     return (
         <table className="tablaClientes">
@@ -21,7 +17,7 @@ const ListadoPacientes = () => {
             </thead>
             <tbody>
                 {
-                    pacientesState.pacientes.map((paciente: IPaciente) => (
+                    pacientes.map((paciente: IPaciente) => (
                         <ListItem
                             key={paciente.id}
                             paciente={paciente}

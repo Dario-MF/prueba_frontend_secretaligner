@@ -8,7 +8,11 @@ type pacientesActions = (
     { type: pacientesActionTypes.listOrder, payload: string | number } |
     { type: pacientesActionTypes.pacientesPorPagina, payload: number } |
     { type: pacientesActionTypes.openModalNewPaciente, payload: boolean } |
-    { type: pacientesActionTypes.closeModalNewPaciente, payload: boolean }
+    { type: pacientesActionTypes.closeModalNewPaciente, payload: boolean } |
+    { type: pacientesActionTypes.openModalFichaPaciente, payload: boolean } |
+    { type: pacientesActionTypes.closeModalFichaPaciente, payload: boolean } |
+    { type: pacientesActionTypes.searchPacientes, payload: any } |
+    { type: pacientesActionTypes.pacientesGet, payload: string }
 )
 
 
@@ -43,6 +47,26 @@ export const pacientesReducer = (
             return {
                 ...state,
                 modalNewPacienteIsOpen: action.payload,
+            }
+        case pacientesActionTypes.openModalFichaPaciente:
+            return {
+                ...state,
+                modalFichaPacienteIsOpen: action.payload,
+            }
+        case pacientesActionTypes.closeModalFichaPaciente:
+            return {
+                ...state,
+                modalFichaPacienteIsOpen: action.payload,
+            }
+        case pacientesActionTypes.searchPacientes:
+            return {
+                ...state,
+                resultadoSearchPaciente: action.payload,
+            }
+        case pacientesActionTypes.pacientesGet:
+            return {
+                ...state,
+                pacienteFocus: action.payload,
             }
 
         default:

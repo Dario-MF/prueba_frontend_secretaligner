@@ -19,5 +19,7 @@ export class Pacientes {
             this.pacientes.push(parsePacient);
         }
     }
-
+    public get pacientesArr(): IPaciente[] {
+        return this.pacientes;
+    }
 }

@@ -102,9 +102,18 @@
     color: $color-info;
     margin-right: 1rem;
     transition: all .3s;
+    margin-bottom: 1rem;
+    text-decoration: none;
     &:hover {
         background-color: $color-info;
         color: whitesmoke;
     }
+}
+
+
+// box list
+.listContainer {
+    height: 100vh;
+    overflow: scroll;
 }
 

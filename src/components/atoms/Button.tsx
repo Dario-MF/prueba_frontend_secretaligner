@@ -5,24 +5,24 @@ interface Iprops {
     value?: string;
     id?: string;
     icon?: string;
-    action: (id: string | undefined) => any;
-}
+    action: (number: any) => void;
+};
 
 const Button = ({ className, id, value, action, type, icon }: Iprops) => {
-    const handleClick = (id: any) => {
+    const handleClick = (id: any = null) => {
         action(id);
-    }
+    };
 
     return (
         <button
             type={type}
             className={`btn ${className}`}
-            onClick={() => handleClick(id)}
+            onClick={(e) => handleClick(id)}
         >
             {icon && <i className={`bi ${icon}`}></i>}
             {" " + value}
         </button>
     )
-}
+};
 
 export default Button;
